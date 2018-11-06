@@ -11,5 +11,5 @@ package com.pack;
  */
 public class Demo
 {
-    
+    int a;
 }
