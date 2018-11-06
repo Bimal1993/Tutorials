@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MN Tutorial</title>
+
+    <!-- Bootstrap -->
+    <link href="libs/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="libs/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="libs/css/jquery.bxslider.css" rel="stylesheet" type="text/css"/>
+    <link href="libs/css/isotope.css" rel="stylesheet" type="text/css"/>
+    <link href="libs/css/animate.css" rel="stylesheet" type="text/css"/>
+    <link href="libs/js/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css"/>
+    <link href="libs/css/prettyPhoto.css" rel="stylesheet" type="text/css"/>
+    
+    <link href="libs/css/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
+    <link href="libs/css/owl.theme.default.min.css" rel="stylesheet" type="text/css"/>
+    
+    <link href="libs/css/style.css" rel="stylesheet" type="text/css"/>
+    <style>
+        .item img{
+            border-radius:0px;
+        }
+        /* Owl Override Style */
+.owl-carousel .owl-controls,
+.owl-carousel-posts .owl-controls {
+  margin-top: 0;
+}
+
+.owl-carousel .owl-controls .owl-nav .owl-next,
+.owl-carousel .owl-controls .owl-nav .owl-prev,
+.owl-carousel-posts .owl-controls .owl-nav .owl-next,
+.owl-carousel-posts .owl-controls .owl-nav .owl-prev {
+  top: 58%;
+  margin-top: -39px;
+  z-index: 9999;
+  position: absolute;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.owl-carousel-posts .owl-controls .owl-nav .owl-next,
+.owl-carousel-posts .owl-controls .owl-nav .owl-prev {
+  top: 24%;
+}
+
+.owl-carousel .owl-controls .owl-nav .owl-next,
+.owl-carousel-posts .owl-controls .owl-nav .owl-next {
+  right: 20px;
+}
+.owl-carousel .owl-controls .owl-nav .owl-next:hover,
+.owl-carousel-posts .owl-controls .owl-nav .owl-next:hover {
+  margin-right: -10px;
+}
+
+.owl-carousel .owl-controls .owl-nav .owl-prev,
+.owl-carousel-posts .owl-controls .owl-nav .owl-prev {
+  left: 20px;
+}
+.owl-carousel .owl-controls .owl-nav .owl-prev:hover,
+.owl-carousel-posts .owl-controls .owl-nav .owl-prev:hover {
+  margin-left: -10px;
+}
+
+.owl-carousel-posts .owl-controls .owl-nav .owl-next i,
+.owl-carousel-posts .owl-controls .owl-nav .owl-prev i,
+.owl-carousel-fullwidth .owl-controls .owl-nav .owl-next i,
+.owl-carousel-fullwidth .owl-controls .owl-nav .owl-prev i {
+  color: #444;
+}
+.owl-carousel-posts .owl-controls .owl-nav .owl-next:hover i,
+.owl-carousel-posts .owl-controls .owl-nav .owl-prev:hover i,
+.owl-carousel-fullwidth .owl-controls .owl-nav .owl-next:hover i,
+.owl-carousel-fullwidth .owl-controls .owl-nav .owl-prev:hover i {
+  color: #000;
+}
+
+.owl-carousel-fullwidth.fh5co-light-arrow .owl-controls .owl-nav .owl-next i,
+.owl-carousel-fullwidth.fh5co-light-arrow .owl-controls .owl-nav .owl-prev i {
+  color: #fff;
+}
+.owl-carousel-fullwidth.fh5co-light-arrow .owl-controls .owl-nav .owl-next:hover i,
+.owl-carousel-fullwidth.fh5co-light-arrow .owl-controls .owl-nav .owl-prev:hover i {
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .owl-theme .owl-controls .owl-nav {
+    display: none;
+  }
+}
+
+.owl-theme .owl-controls .owl-nav [class*="owl-"] {
+  background: none !important;
+}
+.owl-theme .owl-controls .owl-nav [class*="owl-"] i {
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.5) !important;
+  padding: 12px;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.owl-theme .owl-controls .owl-nav [class*="owl-"]:hover i, .owl-theme .owl-controls .owl-nav [class*="owl-"]:focus i {
+  background: rgba(255, 255, 255, 0.8) !important;
+}
+
+.owl-theme .owl-dots {
+  position: absolute;
+  bottom: 10;
+  width: 100%;
+  text-align: center;
+}
+
+.owl-carousel-fullwidth.owl-theme .owl-dots {
+  bottom: 0;
+  margin-bottom: -2.5em;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+  width: 10px;
+  height: 10px;
+  background: #17B794;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+  border: 2px solid transparent;
+}
+.owl-theme .owl-dots .owl-dot span:hover {
+  background: none;
+  border: 2px solid #17B794;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+  background: none;
+  border: 2px solid #17B794;
+}
+
+
+.ti-arrow-right:before {
+	content: ' \003E';
+}
+.ti-arrow-left:before {
+	content: ' \003C';
+}
+
+    </style>
+	
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+	<header>		
+		<nav class="navbar navbar-default navbar-static-top" role="navigation">
+			<div class="navigation">
+				<div class="container">					
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<div class="navbar-brand">
+							<a href="index.html"><h1><span>T</span>utorial</h1></a>
+						</div>
+					</div>
+					
+					<div class="navbar-collapse collapse">							
+						<div class="menu">
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation"><a href="index.html" class="active">Home</a></li>
+								<li role="presentation"><a href="services.html">Services</a></li>
+								<li role="presentation"><a href="blog.html">Blog</a></li>
+								<li role="presentation"><a href="portfolio.html">Portfolio</a></li>
+								<li role="presentation"><a href="contact.html">Contact</a></li>						
+							</ul>
+						</div>
+					</div>						
+				</div>
+			</div>	
+		</nav>		
+	</header>
+   
+	<div class="slider">
+		<div class="img-responsive">
+			<ul class="bxslider">				
+				<li><img src="images/slider/1.jpg" alt=""/></li>								
+				<li><img src="images/slider/2.jpg" alt=""/></li>	
+				<li><img src="images/slider/3.jpg" alt=""/></li>
+                                <li><img src="images/slider/2.jpg" alt=""/></li>	
+				<li><img src="images/slider/3.jpg" alt=""/></li>
+                                <li><img src="images/slider/3.jpg" alt=""/></li>
+                                <li><img src="images/slider/2.jpg" alt=""/></li>	
+				<li><img src="images/slider/3.jpg" alt=""/></li>
+			</ul>
+		</div>	
+    </div>
+	
+	
+	
+	<div class="features">
+		<div class="container">
+			<div class="text-center">
+				<div class="wow bounceInDown" data-wow-offset="0" data-wow-delay="0.3s">
+					<h2>Main Features</h2>
+				</div>
+				<div class="wow bounceInDown" data-wow-offset="0" data-wow-delay="0.6s">
+					<p>Bras urna felis accumsan at ultrde cesid posuere masa socis nautoque<br>
+					penat bus maecenas ultrices sed ipsum lorem
+					dolor sit amet sed ipsum consectetur<br></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="col-lg-6 wow fadeInRight" data-wow-offset="0" data-wow-delay="0.5s">
+			<img src="images/6.jpg" class="img-responsive" >
+		</div>
+		
+		<div class="col-lg-6 wow fadeInLeft" data-wow-offset="0" data-wow-delay="0.5s">
+			<img src="images/5.jpg" class="img-responsive" >
+		</div>
+	</div>
+	
+	<div class="main-feature">
+		<div class="container">
+			<div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">
+				<div class="media">
+					<div class="media-left">					
+						<i class="fa fa-rocket fa-3x"></i>
+					</div>
+					
+					<div class="media-body">
+						<h4 class="media-heading">SEO Optimized</h4>
+						<p>Cras urna felis accumsan at ultricesid posuere masa um socisd natoque penatibus magnisd Lorem ipsum dolor sit ame onsectea dipe.</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">
+				<div class="media">
+					<div class="media-left">					
+						<i class="fa fa-camera fa-3x"></i>
+					</div>
+					
+					<div class="media-body">
+						<h4 class="media-heading">Easy to Install</h4>
+						<p>Cras urna felis accumsan at ultricesid posuere masa um socisd natoque penatibus magnisd Lorem ipsum dolor sit ame onsectea dipe.</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">
+				<div class="media">
+					<div class="media-left">					
+						<i class="fa fa-heart-o fa-3x"></i>
+					</div>
+					
+					<div class="media-body">
+						<h4 class="media-heading">Unlimited Possibilities</h4>
+						<p>Cras urna felis accumsan at ultricesid posuere masa um socisd natoque penatibus magnisd Lorem ipsum dolor sit ame onsectea dipe.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="text-center">
+			<div class="wow bounceInDown" data-wow-offset="0" data-wow-delay="0.3s">
+				<h2>Easily Customizable & Unlimited Support </h2>
+			</div>
+			<div class="wow bounceInUp" data-wow-offset="0" data-wow-delay="0.6s">
+				<p>Integer orci enim varius vel accumsan vel porttitor tellus. Vivamus odio. Donec metus libero semper</p>
+			</div>
+			
+			<button type="button" class="btn btn-default">Purchase Now</button>
+			<button type="button" class="btn btn-default">learn More</button>
+		</div>	
+		
+	</div>
+	
+	<div class="about-us">
+		<div class="container">
+			<div class="text-center">
+                            <div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
+					<h2>Products</h2>
+					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+				</div>
+			</div>
+			<div class="row animate-box">
+				<div class="owl-carousel owl-carousel-carousel">
+					<div class="item">
+						<img src="images/vedio/img_1.jpg" alt="Free HTML5 Bootstrap Template by GetTemplates.co">
+					</div>
+					<div class="item">
+						<img src="images/vedio/img_2.jpg" alt="Free HTML5 Bootstrap Template by GetTemplates.co">
+					</div>
+					<div class="item">
+						<img src="images/vedio/img_3.jpg" alt="Free HTML5 Bootstrap Template by GetTemplates.co">
+					</div>
+					<div class="item">
+						<img src="images/vedio/img_4.jpg" alt="Free HTML5 Bootstrap Template by GetTemplates.co">
+					</div>
+				</div>
+			</div>
+                        </div>
+		</div>
+	</div>
+	
+	<footer>
+		<div class="footer">
+                    <div class="container">
+                        <div class="col-md-8 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s" style="padding-top:22px;">
+                            
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="exampleInputName" placeholder="name">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="email">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="exampleInputPhone" placeholder="phone">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">				
+                                    <textarea class="form-control" rows="5"></textarea>			
+                                    <div class="form-group">
+                                        <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">Submit Message</button>
+                                    </div>
+                                </div>					
+								
+                        </div>	
+                        <div class="col-md-4 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">
+                                <h3>CONTACT INFO</h3>
+                                <ul>
+                                        <li><i class="fa fa-home fa-2x"></i> Office # 38, Suite 54 Elizebth Street, Victoria State Newyork, USA 33026</li><hr>
+                                        <li><i class="fa fa-phone fa-2x"></i> +38 000 129900</li><hr>
+                                        <li><i class="fa fa-envelope fa-2x"></i> info@domain.net</li>
+                                </ul>
+                        </div>
+				
+			</div>
+		</div>
+						
+	</footer>
+      
+      
+      <script src="libs/js/jquery-2.1.1.min.js" type="text/javascript"></script>
+      <script src="libs/js/bootstrap.min.js" type="text/javascript"></script>
+      <script src="libs/js/wow.min.js" type="text/javascript"></script>
+      <script src="libs/js/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+      <script src="libs/js/jquery.easing.1.3.js" type="text/javascript"></script>
+      <script src="libs/js/jquery.bxslider.min.js" type="text/javascript"></script>
+      <script src="libs/js/jquery.prettyPhoto.js" type="text/javascript"></script>
+      <script src="libs/js/jquery.isotope.min.js" type="text/javascript"></script>
+      
+      <script src="libs/js/owl.carousel.min.js" type="text/javascript"></script>
+      
+      <script src="libs/js/functions.js" type="text/javascript"></script>
+      
+    
+    <script>
+    wow = new WOW(
+     {
+
+            }	) 
+            .init();
+    </script>
+	
+  </body>
+</html>
