@@ -1,6 +1,6 @@
 # build.xml file
 *.xml
-logs/
+nbproject/**/.xml
 
 # Compiled class file
 *.class
