@@ -1,5 +1,6 @@
 # build.xml file
 *.xml
+logs/
 
 # Compiled class file
 *.class
