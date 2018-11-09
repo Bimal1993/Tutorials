@@ -12,5 +12,8 @@ package com.pack;
 public class Demo
 {
     int a;
+    {
+        a=0;
+    }
    
 }
