@@ -12,8 +12,10 @@ package com.pack;
 public class Demo
 {
         int x;
+        int y;
 	
     {
         x=123;
+        y=44;
     }
 }
