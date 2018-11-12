@@ -15,6 +15,6 @@ public class Demo
 	int y;
     {
         x=123;
-		y=99;
+	y=99;
     }
 }
