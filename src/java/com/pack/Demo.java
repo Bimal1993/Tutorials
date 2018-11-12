@@ -11,10 +11,12 @@ package com.pack;
  */
 public class Demo
 {
-    int x;
+        int x;
 	int y;
+        int z;
     {
         x=123;
 	y=99;
+        z=10;
     }
 }
