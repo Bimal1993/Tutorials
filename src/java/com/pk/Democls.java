@@ -11,5 +11,5 @@ package com.pk;
  */
 public class Democls
 {
-    
+    int x;
 }
