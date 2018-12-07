@@ -26,7 +26,10 @@ public class SessionListener implements HttpSessionListener {
 
     @Override
     public void sessionCreated(HttpSessionEvent se) {
-
+        //when getsession method invoked at that time new session created.no need to maintain here already maintained
+        //in requestpuler for verification we will check which session is created the same session will be detroyed.
+        //through the session id ..
+        System.out.println("New session Created.." + se.getSession().getId());
     }
 
     @Override
@@ -36,7 +39,7 @@ public class SessionListener implements HttpSessionListener {
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
         }
-        System.out.println("HCL OUTAGE::SessionListener. SessionDestroyed success..Id: " + se.getSession().getId());
+        System.out.println("Tutorial App::SessionListener. SessionDestroyed success..Id: " + se.getSession().getId());
     }
 
 }

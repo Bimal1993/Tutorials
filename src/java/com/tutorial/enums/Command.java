@@ -13,7 +13,7 @@ public enum Command {
     None,
     Login,
     Logout,
-    admin,;
+    Admin,;
 
     public static Command ToUserCommand(String command) {
         try {

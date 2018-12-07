@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.tutorial.enums.Command;
 import com.tutorial.enums.ResponseCode;
+import com.tutorial.processors.LogoutProcess;
+import com.tutorial.processors.RequestProcessorLoginLogout;
 import com.tutorial.processors.RequestQueryConvert;
 import org.slf4j.LoggerFactory;
 
@@ -63,23 +65,25 @@ public class RequestPuller extends HttpServlet {
                 String reqParams = URLDecoder.decode(request.getQueryString(), "UTF-8");
                 HashMap<String, String> requestparams = QueryStringToHashMap(reqParams);
 //                JSONObject jobj = new JSONObject(convert(queryStr));
+                System.out.println("hSession.." + requestparams.toString());
+
                 if (!Main.IsSessionExist(hSess.getId()) && usrCommand.equals(Command.Login)) {
-
-                   //here we check if the request for login is firsttime then go for login ..
-
-                } else if (Main.IsSessionExist(hSess.getId()) && !usrCommand.equals(Command.Login)) {
+                    System.out.println("login request validate here..");
+                    responseEvent = RequestProcessorLoginLogout.LoginValidateProcess(hSess, requestparams);                    //here we check if the request for login is firsttime then go for login ..
+                } else if (!Main.IsSessionExist(hSess.getId()) && !usrCommand.equals(Command.Login)) {
                     switch (usrCommand) {
-                        case Login:
-                            //do here for processing..and in the processing class we need to add the session is in the 
-                            //hash map 
-                            break;
 
                         case Logout:
-                            //do here for logout...
+                            responseEvent = LogoutProcess.LogoutProcess(hSess, requestparams);
+
+                            break;
+                        case Admin:
+                            //we need to send this to admin login page by redirecting method
+
                             break;
 //                    
                         default:
-                           //here failed message will be thrown to ui....
+                            //here failed message will be thrown to ui....
                             break;
                     }
                 }

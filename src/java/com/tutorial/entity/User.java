@@ -5,10 +5,13 @@
  */
 package com.tutorial.entity;
 
+import com.tutorial.enums.UserType;
+
 /**
  *
  * @author Manoj
  * @since 18 Nov, 2018
+ * we maintain usertype as enum preliminary we take only admin..
  */
 public class User {
 
@@ -17,7 +20,7 @@ public class User {
     private String LoginId;
     private String Password;
 
-    private String UserType;
+    private UserType UserType;
 
     public Long getId() {
         return Id;
@@ -51,11 +54,11 @@ public class User {
         this.Password = Password;
     }
 
-    public String getUserType() {
+    public UserType getUserType() {
         return UserType;
     }
 
-    public void setUserType(String UserType) {
+    public void setUserType(UserType UserType) {
         this.UserType = UserType;
     }
 
