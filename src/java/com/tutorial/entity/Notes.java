@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.tutorial.entity;
 
 /**
@@ -11,8 +10,8 @@ package com.tutorial.entity;
  * @author Manoj
  * @since 18 Nov, 2018
  */
-public class Notes 
-{
+public class Notes {
+
     private Integer Id;
     private String Code;
     private String Name;
@@ -21,74 +20,60 @@ public class Notes
     private String Subject;
     private String Author;
 
-    public Integer getId()
-    {
+    public Integer getId() {
         return Id;
     }
 
-    public void setId(Integer Id)
-    {
+    public void setId(Integer Id) {
         this.Id = Id;
     }
 
-    public String getCode()
-    {
+    public String getCode() {
         return Code;
     }
 
-    public void setCode(String Code)
-    {
+    public void setCode(String Code) {
         this.Code = Code;
     }
-    
-    public String getName()
-    {
+
+    public String getName() {
         return Name;
     }
 
-    public void setName(String Name)
-    {
+    public void setName(String Name) {
         this.Name = Name;
     }
 
-    public String getLocation()
-    {
+    public String getLocation() {
         return Location;
     }
 
-    public void setLocation(String Location)
-    {
+    public void setLocation(String Location) {
         this.Location = Location;
     }
 
-    public String getTopic()
-    {
+    public String getTopic() {
         return Topic;
     }
 
-    public void setTopic(String Topic)
-    {
+    public void setTopic(String Topic) {
         this.Topic = Topic;
     }
 
-    public String getSubject()
-    {
+    public String getSubject() {
         return Subject;
     }
 
-    public void setSubject(String Subject)
-    {
+    public void setSubject(String Subject) {
         this.Subject = Subject;
     }
 
-    public String getAuthor()
-    {
+    public String getAuthor() {
         return Author;
     }
 
-    public void setAuthor(String Author)
-    {
+    public void setAuthor(String Author) {
         this.Author = Author;
     }
-        
+
 }

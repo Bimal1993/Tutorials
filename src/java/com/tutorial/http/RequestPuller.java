@@ -5,7 +5,8 @@
  */
 package com.tutorial.http;
 
-import com.tutorial.EventHandler.Aevent;
+import com.tutorial.EventHandler.AEvent;
+import com.tutorial.EventHandler.EventFailed;
 import com.tutorial.app.Main;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,6 +19,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.tutorial.enums.Command;
 import com.tutorial.enums.ResponseCode;
+import com.tutorial.processors.ProcessorManager;
+import com.tutorial.processors.RequestLogoutProcess;
+import com.tutorial.processors.RequestLoginProcessor;
+import com.tutorial.processors.RequestProcessor;
 import com.tutorial.processors.RequestQueryConvert;
 import org.slf4j.LoggerFactory;
 
@@ -25,7 +30,8 @@ import org.slf4j.LoggerFactory;
  *
  * @author Manoj
  */
-public class RequestPuller extends HttpServlet {
+public class RequestPuller extends HttpServlet
+{
 
     static org.slf4j.Logger logger = LoggerFactory.getLogger(Main.class);
 
@@ -39,18 +45,21 @@ public class RequestPuller extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException
+    {
         response.setContentType("text/html;charset=UTF-8");
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
         response.setHeader("Access-Control-Max-Age", "3600");
         response.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With, remember-me");
-        try (PrintWriter out = response.getWriter()) {
-            Aevent responseEvent = null;
+        try (PrintWriter out = response.getWriter())
+        {
+            AEvent responseEvent = null;
             //command coming from ui that will be hardcoded "cmd" from ui side and this value will be checked accordingly..
             String cmd = request.getParameter("cmd");
-            try {
+            try
+            {
                 //get the session object for further use.
                 HttpSession hSess = request.getSession();
                 //the string value which are appended with the request url that comes from user side need to
@@ -63,27 +72,19 @@ public class RequestPuller extends HttpServlet {
                 String reqParams = URLDecoder.decode(request.getQueryString(), "UTF-8");
                 HashMap<String, String> requestparams = QueryStringToHashMap(reqParams);
 //                JSONObject jobj = new JSONObject(convert(queryStr));
-                if (!Main.IsSessionExist(hSess.getId()) && usrCommand.equals(Command.Login)) {
-
-                   //here we check if the request for login is firsttime then go for login ..
-
-                } else if (Main.IsSessionExist(hSess.getId()) && !usrCommand.equals(Command.Login)) {
-                    switch (usrCommand) {
-                        case Login:
-                            //do here for processing..and in the processing class we need to add the session is in the 
-                            //hash map 
-                            break;
-
-                        case Logout:
-                            //do here for logout...
-                            break;
-//                    
-                        default:
-                           //here failed message will be thrown to ui....
-                            break;
-                    }
+                System.out.println("hSession.." + requestparams.toString());
+                
+                RequestProcessor reqProc = ProcessorManager.FindProcessor(usrCommand,requestparams);
+                if(reqProc==null)
+                {
+                    responseEvent = new EventFailed(ResponseCode.Failed);
+                    responseEvent.setRespMessage("RequestProcessor Not Found.");
                 }
-            } catch (Exception ex) {
+                responseEvent = reqProc.DoProcess();
+
+            }
+            catch (Exception ex)
+            {
                 logger.error(ex.getMessage(), ex);
             }
             String jsonResp = responseEvent.ToJson();
@@ -93,16 +94,22 @@ public class RequestPuller extends HttpServlet {
         }
     }
 
-    public static HashMap<String, String> QueryStringToHashMap(String qrystr) {
+    public static HashMap<String, String> QueryStringToHashMap(String qrystr)
+    {
         HashMap<String, String> htArgs = new HashMap<>();
         String[] arrArgs = qrystr.split("&");
-        for (String paramvalpair : arrArgs) {
-            if (paramvalpair.trim().isEmpty()) {
+        for (String paramvalpair : arrArgs)
+        {
+            if (paramvalpair.trim().isEmpty())
+            {
                 continue;
             }
-            if (paramvalpair.split("=").length > 1) {
+            if (paramvalpair.split("=").length > 1)
+            {
                 htArgs.put(paramvalpair.split("=")[0].trim(), paramvalpair.split("=")[1]);
-            } else {
+            }
+            else
+            {
                 htArgs.put(paramvalpair.split("=")[0].trim(), "");
             }
         }
@@ -121,7 +128,8 @@ public class RequestPuller extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException
+    {
         processRequest(request, response);
     }
 
@@ -135,7 +143,8 @@ public class RequestPuller extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException
+    {
         processRequest(request, response);
     }
 
@@ -145,7 +154,8 @@ public class RequestPuller extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+    public String getServletInfo()
+    {
         return "Short description";
     }// </editor-fold>
 

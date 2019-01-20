@@ -40,8 +40,9 @@ public class DBManager
 
     protected final String _dbUrl, _dbSrvr, _dbName, _dbUser, _dbPwd;
     protected final Integer _dbPort;
-    protected static Connection _connection;
-
+    protected static Connection connection;
+    
+    
     public DBManager(String _dbSrvr, Integer _dbPort, String _dbName, String _dbUser, String _dbPwd) throws Exception
     {
         this._dbSrvr = _dbSrvr;
@@ -52,14 +53,18 @@ public class DBManager
         this._dbUrl = "jdbc:mysql://" + _dbSrvr + ":" + _dbPort + "/" + _dbName;
 
         Class.forName(AppConst.DB_Driver);
-        _connection = DriverManager.getConnection(_dbUrl, _dbUser, _dbPwd);
+//        _connection = DriverManager.getConnection(_dbUrl, _dbUser, _dbPwd);
     }
-
-    public Connection getConnection() throws Exception
+    
+    public static DBManager InitDB() throws Exception
     {
         DBManager dbM = new DBManager(AppConst.DB_Server, AppConst.DB_Port, AppConst.DB_Name, AppConst.DB_User, AppConst.DB_Pwd);
-        dbM._connection = DriverManager.getConnection(dbM._dbUrl, dbM._dbUser, dbM._dbPwd);
-        return dbM._connection;
+        connection = DriverManager.getConnection(dbM._dbUrl, dbM._dbUser, dbM._dbPwd);
+        return dbM;
+    }
+    public Connection getConnection() throws Exception
+    {
+        return DBManager.connection;
     }
 
     public void CloseDBConnection(Statement st, ResultSet rs, Connection dbconn)

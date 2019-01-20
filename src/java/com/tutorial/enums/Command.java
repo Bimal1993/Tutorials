@@ -9,16 +9,26 @@ package com.tutorial.enums;
  *
  * @author Debashis
  */
-public enum Command {
+public enum Command
+{
     None,
     Login,
     Logout,
-    admin,;
+    Admin,
+    Add,
+    Delete,
+    Edit,
+    Fetch,
+    ;
 
-    public static Command ToUserCommand(String command) {
-        try {
+    public static Command ToUserCommand(String command)
+    {
+        try
+        {
             return valueOf(command);
-        } catch (Exception ex) {
+        }
+        catch (Exception ex)
+        {
             return None;
         }
     }

@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author Debashis
  */
-public abstract class Aevent {
+public abstract class AEvent {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -32,7 +32,7 @@ public abstract class Aevent {
 
     protected final Map<String, String> _params = new HashMap<>();
 
-    public Aevent(ResponseCode code) {
+    public AEvent(ResponseCode code) {
         this._respCode = code.getCode();
         this._respText = code.toString();
     }
