@@ -10,13 +10,16 @@ package com.tutorial.app;
  * @author Manoj
  * @since 18 Nov, 2018
  */
-public class AppConst {
+public class AppConst
+{
 
-    public static String Db;
-    public static String Password;
-    public static String DbIP;
-    public static Integer DbPort;
-    public static String Log;
+    public static String DB_Driver;
+    public static String DB_Server;
+    public static String DB_IP;
+    public static Integer DB_Port;
+    public static String DB_Name;
+    public static String DB_User;
+    public static String DB_Pwd;
     public static String ConfigFile;
 //    public static String 
 }
