@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style/login/main.css" rel="stylesheet" type="text/css"/>
+        <link href="style/login/util.css" rel="stylesheet" type="text/css"/>
+        <link href="style/Footer-with-logo.css" rel="stylesheet" type="text/css"/>
+        <!--        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">-->
+        <link href="style/font-awesome.css" rel="stylesheet" type="text/css"/>
+        <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">-->
+        <link href="style/bootstrap_4.2.1.css" rel="stylesheet" type="text/css"/>
+        <!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+        <script src="javaScript/jquery_3.3.1_jquery.min.js" type="text/javascript"></script>
+        <!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>-->
+        <script src="javaScript/umd_popper_1.14.6.min.js" type="text/javascript"></script>
+        <!--        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>-->
+        <script src="javaScript/bootstrap_4.2.1.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="limiter">
+            <div class="container-login100" style=" background-color:#A9A9A9">
+                <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+                    <form class="login100-form validate-form" name="admin_login" method="POST">
+                        <span class="login100-form-title p-b-33">
+                            Admin Login
+                        </span>
+
+                        <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                            <input class="input100" type="text" name="email" id="email" placeholder="Id">
+                            <span class="focus-input100-1"></span>
+                            <span class="focus-input100-2"></span>
+                        </div>
+
+                        <div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+                            <input class="input100" type="password" name="pass" id="pass" placeholder="Password">
+                            <span class="focus-input100-1"></span>
+                            <span class="focus-input100-2"></span>
+                        </div>
+
+                        <div class="container-login100-form-btn m-t-20">
+                            <button class="login100-form-btn" onclick="adminloginDta()"> Sign in </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="javaScript/informationPage/adminLogin.js" type="text/javascript"></script>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 9 Feb, 2019, 6:39:25 PM
+    Author     : Admin
+*/
+
+
+/* Create two equal video_list_columns that floats next to each other */
+.video_list_column {
+  box-sizing: border-box;
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+/* Clear floats after the video_list_columns */
+.vdo_row:after {
+  box-sizing: border-box;
+  content: "";
+  display: table;
+  clear: both;
+}
+/* Style the buttons */
+.vdo_btn {
+  
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.vdo_btn:hover {
+
+  background-color: #ddd;
+}
+
+.vdo_btn.active {
+  background-color: #666;
+  color: white;
+}

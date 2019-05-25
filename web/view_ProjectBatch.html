@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Simple Responsive Admin</title>
+        <!-- BOOTSTRAP STYLES-->
+        <!--    <link href="assets/css/bootstrap.css" rel="stylesheet" />-->
+        <link href="style/admincss/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <!-- FONTAWESOME STYLES-->
+        <!--    <link href="assets/css/font-awesome.css" rel="stylesheet" />-->
+        <link href="style/admincss/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+        <!-- CUSTOM STYLES-->
+        <!--    <link href="assets/css/custom.css" rel="stylesheet" />-->
+        <link href="style/admincss/css/custom.css" rel="stylesheet" type="text/css"/>
+        <!-- GOOGLE FONTS-->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    </head>
+    <body>
+
+
+
+        <div id="wrapper">
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="adjust-nav">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">
+                            <a href="adminindex.html"><img src="img/logo/logo.png" alt="" height="100"/> </a>
+                        </a>
+
+                    </div>
+
+                    <div class="logout-spn" >
+                        <a href="#" style="color:#fff;">LOGOUT</a>  
+                    </div>
+                </div>
+            </div>
+            <!-- /. NAV TOP  -->
+            <nav class="navbar-default navbar-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="main-menu">
+
+
+
+                        <!--  <li class="active-link">
+                             <a href="index.html" ><i class="fa fa-desktop "></i>Dashboard</a>
+                         </li> -->
+                        <li>
+                            <a href="adminindex.html">Feedback View</a>
+                        </li>
+
+                        <li>
+                            <!--   <a href="#"><i class="fa fa-table "></i>Upload</a> -->
+
+
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><i class="fa fa-table ">&nbsp;</i>Update Class Time</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse1" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            <div><a href="Offline_Batch.html">Offline Batch</a></div>
+                                            <div><a href="Online_Batch.html">Online Batch</a></div>
+                                            <div><a href="Project_Batch.html">Project Batch</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <!--   <a href="#"><i class="fa fa-table "></i>Upload</a> -->
+
+
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><i class="fa fa-table ">&nbsp;</i>Upload</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse2" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            <div><a href="slide_upload.html">slide</a></div>
+                                            <div><a href="notes_upload.html">notes</a></div>
+                                            <div><a href="video_upload.html">video</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><i class="fa fa-table ">&nbsp;</i>View</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse3" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                             <div><a href="view_OfflineBatch.html">Offline Batch</a></div>
+                                            <div><a href="view_OnlineBatch.html">Online Batch</a></div>
+                                            <div><a href="view_ProjectBatch.html">Project Batch</a></div>
+                                            <div><a href="view_slide.html">Slide</a></div>
+                                            <div><a href="view_notes.html">Notes</a></div>
+                                            <div><a href="view_video.html">Video</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+                    </ul>
+                </div>
+
+            </nav>
+            <!-- /. NAV SIDE  -->
+            <div id="page-wrapper" >
+                <div id="page-inner">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h2>Project Batches</h2>   
+                        </div>
+                    </div>              
+                    <!-- /. ROW  -->
+                    <hr />
+                    <div class="row">
+                        <div class="col-lg-12 ">
+                            <div class="alert alert-info">
+                                <strong>Admin ! </strong>Class Information for project Batches.
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /. ROW  --> 
+                    <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Batch Name</th>
+                                    <th>DATE / TIME</th>
+                                    <th>Contact Person Name</th>
+                                    <th>Number</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>John</td>
+                                    <td>Doe</td>
+                                    <td>john@example.com</td>
+                                     <td>john@example.com</td>
+                                     <th><button onclick="myFunction()">Delete</button></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    <!-- /. PAGE INNER  -->
+                </div>
+                <!-- /. PAGE WRAPPER  -->
+            </div>
+            <div class="footer">
+
+
+                <div class="row">
+                    <div class="col-lg-12" >
+                        &copy;  2019 tutorial.com
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- /. WRAPPER  -->
+            <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+            <!-- JQUERY SCRIPTS -->
+            <!--    <script src="assets/js/jquery-1.10.2.js"></script>-->
+            <script src="style/admincss/js/jquery-1.10.2.js" type="text/javascript"></script>
+            <!-- BOOTSTRAP SCRIPTS -->
+            <!--    <script src="assets/js/bootstrap.min.js"></script>-->
+            <script src="style/admincss/js/bootstrap.min.js" type="text/javascript"></script>
+            <!-- CUSTOM SCRIPTS -->
+            <!--    <script src="assets/js/custom.js"></script>-->
+            <script src="style/admincss/js/custom.js" type="text/javascript"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,29 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 3 Feb, 2019, 4:57:09 PM
+    Author     : Admin
+*/
+
+/* Start only for box box present below sliding */
+.column {
+  box-sizing: border-box;
+  float: left;
+  width: 25%;
+  padding: 10px;
+  margin-left: 80px;
+  height: 300px; /* Should be removed. Only for demonstration */
+  /*background-color: red;*/
+}
+
+/* Clear floats after the columns */
+.row:after {
+ 
+  display: table;
+  clear: both;
+
+}
+/* End only for box box present below sliding */

@@ -6,11 +6,402 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Home</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="style/headerCss.css" rel="stylesheet" type="text/css"/>
+        <link href="style/rowimg.css" rel="stylesheet" type="text/css"/>
+        <link href="style/videolist.css" rel="stylesheet" type="text/css"/>
+        <link href="style/Footer-with-logo.css" rel="stylesheet" type="text/css"/>
+        <!--        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">-->
+        <link href="style/font-awesome.css" rel="stylesheet" type="text/css"/>
+        <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">-->
+        <link href="style/bootstrap_4.2.1.css" rel="stylesheet" type="text/css"/>
+
+        <!-- for Slide -->
+        <link href="style/slide/homeSlide.css" rel="stylesheet" type="text/css"/>
+        <!-- for Slide -->
+
+        <!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+        <script src="javaScript/jquery_3.3.1_jquery.min.js" type="text/javascript"></script>
+        <!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>-->
+        <script src="javaScript/umd_popper_1.14.6.min.js" type="text/javascript"></script>
+        <!--        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>-->
+        <script src="javaScript/bootstrap_4.2.1.js" type="text/javascript"></script>
+
+
     </head>
-    <body>
-        <div>TODO write content</div>
+    <body style=" background-color:#A9A9A9">
+        <div class="container-fluid">
+            <header role="banner">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container">
+                        <a class="navbar-brand absolute" href="index.html">Mytutorial</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="index.html">Home</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="c_offline.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Classroom Training</a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdown04">
+                                        <a class="dropdown-item" href="c_offline.html">C</a>
+                                        <a class="dropdown-item" href="cpp_offline.html">C++</a>
+                                        <a class="dropdown-item" href="java_offline.html">Core Java</a>
+                                        <a class="dropdown-item" href="advjava_offline.html">Advanced Java</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Project Training</a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdown05">
+                                        <a class="dropdown-item" href="#">Small Project</a>
+                                        <a class="dropdown-item" href="#">Academic Project</a>
+                                        <a class="dropdown-item" href="#">Real time Project</a>
+                                        <a class="dropdown-item" href="#">Application Development</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="newbatch.html">New Batches</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact Us</a>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav absolute-right">
+                                <li>
+                                    <a href="login.html">Login</a> / <a href="register.html">Register</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- END header -->
+
+
+            <!-- Start Sliding -->
+
+            <div class="bs-example">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Carousel indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <!-- Wrapper for carousel items -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/slide/home_slider_2.jpg" alt="First Slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/slide/home_slider_2.jpg" alt="Second Slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/slide/home_slider_2.jpg" alt="Third Slide">
+                        </div>
+                    </div>
+
+                    <!-- Carousel controls -->
+                    <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- End Sliding-->
+            <br>
+            <h2 style="margin-left: 500px; color: white; font-family: 'Comic Sans MS', cursive, sans-serif;">Mytutorial Training</h2>
+            <div class="col-md-18">
+                <br><br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h2>
+                            <img style="height: 50px; width: 50px; margin-left: 150px" src="img/boximg/3.png" alt="img not avilable"/>
+                        </h2>
+                        <h6 style="margin-left: 100px; color: white">Classroom Training</h6>
+                        <p style="color: white" >
+                            It requires analytical thinking, 
+                            good decision making, patience 
+                            and curiosity, lots of curiosity.
+                            It requires you to be self-taught. 
+                            Yes, you can learn the theory from 
+                            the books, but when your code breaks,
+                            nobody is going to hold your hand.
+                        </p>
+                    </div>
+
+                    <div class="col-md-4" >
+                        <h2>
+                            <img style="height: 50px; width: 50px; margin-left: 160px" src="img/boximg/2.png" alt="img not avilable"/>
+                        </h2>
+                        <h6 style="margin-left: 130px;color: white">Project Training</h6>
+                        <p style="color: white">
+                            Software development is the process 
+                            of conceiving, specifying, designing,
+                            programming, documenting, testing, 
+                            and bug fixing involved in 
+                            creating and maintaining applications, 
+                            frameworks, or other software components.
+                        </p>
+                    </div>
+
+                    <div class="col-md-4" >
+                        <h2>
+                            <img style="height: 50px; width: 50px; margin-left: 160px" src="img/boximg/1.png" alt="img not avilable"/>
+                        </h2>
+                        <h6 style="margin-left: 130px;color: white">Online Training</h6>
+                        <p style="color: white">
+                            There's got to be a secret right?
+                            We all know that a good online 
+                            training program is vital to a 
+                            company's long-term success. It's 
+                            like a steak dinner. You have to 
+                            start with quality cuts of meat, 
+                            or your meal isn't going to end 
+                            up as delectable as you'd hoped. 
+                        </p>
+                    </div>   
+                </div>
+            </div>
+            <br><br>
+            <!--Start Demo crouse  images list -->
+            <h2 style="margin-left: 500px; font-family: 'Comic Sans MS', cursive, sans-serif; color: white;">Mytutorial courses  </h2>
+            <br><br>
+            <div class="col-md-16">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="columnlist">
+                            <img src="img/imgrow/DataStructures.png" alt="Snow" style="width:200px; height: 100px; margin-right: 20px; margin-left: 20px;">
+                        </div>
+
+                    </div>
+                    <div class="col-md-3" >
+                        <div class="columnlist">
+                            <img src="img/imgrow/c.jpg" alt="Forest" style="width:200px; height: 100px;">
+                        </div>
+                    </div>
+                    <div class="col-md-3" >
+                        <div class="columnlist">
+                            <img src="img/imgrow/cpp.png" alt="Mountains" style="width:200px; height: 100px;">
+                        </div>
+                    </div>
+                    <div class="col-md-3" >
+                        <div class="columnlist">
+                            <img src="img/imgrow/corejava.jpg" alt="Mountains" style="width:200px; height: 100px;">
+                        </div>
+                    </div>
+                    <div class="col-md-3" >
+                        <div class="columnlist">
+                            <img src="img/imgrow/advancedjava.png" alt="Mountains" style="width:200px; height: 100px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--END Demo crouse  images list -->
+
+            <!--Start Demo crouse  Video list -->
+            <br><br>
+            <h2 style="color: white; margin-left: 500px;font-family: 'Comic Sans MS', cursive, sans-serif;"> Mytutorial Crouse Video </h2>
+            <br><br>
+            <div class="container">
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <video width="550" height="240" controls>
+                                    <source src="video/1.MP4" type="video/mp4">
+                                    Your browser does not support the <code>video</code> tag.
+                                </video>
+                                <p style="color: white;">Body tag that you can set background image of main page</p>
+                            </td>
+                            <td>
+                                <video width="550" height="240" controls>
+                                    <source src="video/2.MP4" type="video/mp4">
+                                    Your browser does not support the <code>video</code> tag.
+                                </video>
+                                <p style="color: white;">Video 2</p>
+                            </td>
+                    </tbody>
+                </table>
+            </div>
+            <div class="container">
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <video width="550" height="240" controls>
+                                    <source src="video/3.MP4" type="video/mp4">
+                                    Your browser does not support the <code>video</code> tag.
+                                </video>
+                                <p style="color: white;">Video 3</p>
+                            </td>
+                            <td>
+                                <video width="550" height="240" controls>
+                                    <source src="video/4.MP4" type="video/mp4">
+                                    Your browser does not support the <code>video</code> tag.
+                                </video>
+                                <p style="color: white;">Video 4</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="margin-left: 520px; padding-top:23px;">
+
+                    <a href="" onclick="openLink()" style="color: white;">More Videos...</a>
+
+                </div>
+            </div>
+            <script>
+                function openLink()
+                {
+                    open("https://www.youtube.com/results?search_query=core+java+by+durga+sir");
+                }
+            </script>
+            <!--END Demo crouse  Video list -->
+
+            <!--  feedback Form-->
+            <div class="container">
+                <div class="imagebg"></div>
+                <div class="row " style="margin-top: 50px">
+                    <div class="col-md-6 col-md-offset-3 form-container">
+                        <h2 style="font-family: 'Comic Sans MS', cursive, sans-serif; color: white;">Feedback</h2> 
+                        <p style="color: white;"> Please provide your feedback below: </p>
+                        <form role="form" method="post" id="feedback_form" name="feedback_form">
+                            <div class="row">
+                                <div class="col-sm-12 form-group">
+                                    <label style="color: white;">How do you rate your overall experience?</label>
+                                    <p>
+                                        <label class="radio-inline" style="color: white;">
+                                            <input type="radio" name="experience" id="experience" value="bad" >
+                                            Bad 
+                                        </label>
+                                        <label class="radio-inline" style="color: white;">
+                                            <input type="radio" name="experience" id="experience" value="average" >
+                                            Average 
+                                        </label>
+                                        <label class="radio-inline" style="color: white;">
+                                            <input type="radio" name="experience" id="experience" value="good" >
+                                            Good 
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 form-group">
+                                    <label for="comments" style="color: white;"> Comments:</label>
+                                    <textarea class="form-control"  name="comments" id="comments" placeholder="Your Comments" maxlength="6000" rows="7"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 form-group">
+                                    <label for="name" style="color: white;"> Your Name:</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <label for="email" style="color: white;"> Email:</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-sm-12 form-group">
+                                    <button type="submit" class="btn btn-lg btn-warning btn-block" onclick="feedBackData()"> Post </button>
+                                </div>
+                            </div>
+                        </form>
+                        <div id="success_message" style="width:100%; height:100%; display:none; "> <h3>Posted your feedback successfully!</h3> </div>
+                        <div id="error_message" style="width:100%; height:100%; display:none; "> <h3>Error</h3> Sorry there was an error sending your form. </div>
+                    </div>
+                </div>
+            </div>
+            <!--  feedback Form-->   
+
+
+            <!--Footer Start -->
+            <div class="content">
+                <footer id="myFooter">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h5>Get started</h5>
+                                <ul>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">Sign up</a></li>
+                                    <li><a href="#">Downloads</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3">
+                                <h5>About us</h5>
+                                <ul>
+                                    <li><a href="#">Company Information</a></li>
+                                    <li><a href="#">Contact us</a></li>
+                                    <li><a href="#">Reviews</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3">
+                                <h5>Support</h5>
+                                <ul>
+                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="#">Help desk</a></li>
+                                    <li><a href="#">Forums</a></li>
+                                </ul>
+
+                            </div>
+                            <div class="col-sm-3 info">
+                                <h5>Information</h5>
+                                <p>
+                                    We are providing online training and class room 
+                                    training. Here any one can apply and study.
+                                    Thanks.
+                                </p>
+
+                            </div>                    
+                            <div class="container">
+                                <div class="social-icons">
+
+                                    <a href="index.html"><img src="img/logo/logo.png" alt="" height="100"/> </a>
+                                </div>
+                                <p style="margin-top: 50px;"> &copy; 2018 mytutorial | Software Training </p>
+                                <!--                                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                                                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                                                    <a href="#" class="google"><i class="fa fa-google-plus"></i></a>-->
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--                <div class="second-bar">
+                                        <div class="container">
+                                            <h2 class="logo"><a href="index.html"><img src="img/logo/logo.png" alt="" height="100"/> </a></h2>
+                                            <div class="social-icons">
+                                                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                                <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+                                            </div>
+                                            <p style="margin-top: 50px;"> &copy; 2018 mytutorial | Software Training </p>
+                                        </div>
+                    
+                                    </div>-->
+                </footer>
+                <!--Footer End -->
+            </div>
+
+            <!-- slide script -->
+            <script src="javaScript/informationPage/feedbackData.js" type="text/javascript"></script>
+            <script src="javaScript/vdoList/videoList.js" type="text/javascript"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <!-- slide script -->
+        </div>
     </body>
 </html>

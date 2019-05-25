@@ -9,13 +9,22 @@
         <listener-class>com.tutorial.listener.SessionListener</listener-class>
     </listener>
     
-    <servlet>
+   <servlet>
         <servlet-name>RequestPuller</servlet-name>
         <servlet-class>com.tutorial.http.RequestPuller</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Admin</servlet-name>
+        <servlet-class>com.tutorial.http.Admin</servlet-class>
+    </servlet>
+    
     <servlet-mapping>
         <servlet-name>RequestPuller</servlet-name>
         <url-pattern>/RequestPuller</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin</servlet-name>
+        <url-pattern>/Admin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -25,4 +34,3 @@
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
-</web-app>
