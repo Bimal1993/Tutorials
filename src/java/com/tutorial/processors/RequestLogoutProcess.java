@@ -17,8 +17,10 @@ import javax.servlet.http.HttpSession;
  *
  * @author Debashis
  */
-public class RequestLogoutProcess {
-    public static AEvent LogoutProcess(HttpSession hSess, HashMap<String, String> hmReq) throws Exception
+public class RequestLogoutProcess
+{
+
+    public static AEvent DoLogout(HttpSession hSess, HashMap<String, String> hmReq) throws Exception
     {
         try
         {
@@ -40,5 +42,5 @@ public class RequestLogoutProcess {
             return evFail;
         }
     }
-    
+
 }

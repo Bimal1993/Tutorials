@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.tutorial.processors;
 
 import com.tutorial.EventHandler.AEvent;
+import com.tutorial.EventHandler.EventSuccess;
+import com.tutorial.enums.ResponseCode;
 import java.util.HashMap;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 public class RequestAddProcessor extends RequestProcessor
 {
 
-    
     public RequestAddProcessor(HashMap<String, String> requestparams)
     {
         super(requestparams);
@@ -27,9 +26,12 @@ public class RequestAddProcessor extends RequestProcessor
     @Override
     public AEvent DoProcess()
     {
-        db.Insert(db);
-        return null;
+        Object obj = getEntityObj(requestparams);
+        db.Insert(obj);
+        
+        EventSuccess ev = new EventSuccess(ResponseCode.Success);
+        ev.setRespMessage(obj.getClass().getSimpleName()+" added");
+        return ev;
     }
-    
 
 }

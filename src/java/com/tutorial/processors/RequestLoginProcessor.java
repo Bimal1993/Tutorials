@@ -59,7 +59,8 @@ public class RequestLoginProcessor
 
                 hSess = req.getSession();
                 /**
-                 * We set the Session in Parent Processor(RequestProcessor) so that we can use this in child processors.
+                 * We set the Session in Parent Processor(RequestProcessor) 
+                 * so that we can use this in child processors.
                  */
                 RequestProcessor.hSess = hSess;
                 System.out.println("Session Id-" + hSess.getId());

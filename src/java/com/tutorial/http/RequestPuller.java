@@ -5,6 +5,8 @@
  */
 package com.tutorial.http;
 
+import CrsCde.CODE.Common.Utils.JSONUtil;
+import CrsCde.CODE.Common.Utils.ReflUtils;
 import com.tutorial.EventHandler.AEvent;
 import com.tutorial.EventHandler.EventFailed;
 import com.tutorial.app.Main;
@@ -24,6 +26,9 @@ import com.tutorial.processors.RequestLogoutProcess;
 import com.tutorial.processors.RequestLoginProcessor;
 import com.tutorial.processors.RequestProcessor;
 import com.tutorial.processors.RequestQueryConvert;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.json.JSONObject;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -45,7 +50,7 @@ public class RequestPuller extends HttpServlet
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
+            throws ServletException, IOException, Exception
     {
         response.setContentType("text/html;charset=UTF-8");
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
@@ -72,24 +77,39 @@ public class RequestPuller extends HttpServlet
                 String reqParams = URLDecoder.decode(request.getQueryString(), "UTF-8");
                 HashMap<String, String> requestparams = QueryStringToHashMap(reqParams);
 //                JSONObject jobj = new JSONObject(convert(queryStr));
-                System.out.println("hSession.." + requestparams.toString());
-                
-                RequestProcessor reqProc = ProcessorManager.FindProcessor(usrCommand,requestparams);
-                if(reqProc==null)
                 {
-                    responseEvent = new EventFailed(ResponseCode.Failed);
-                    responseEvent.setRespMessage("RequestProcessor Not Found.");
+                    System.out.println("hSession.." + requestparams.toString());
+
+                    if (usrCommand.equals(Command.Login))
+                    {
+                        responseEvent = new RequestLoginProcessor().DoLogin(request, requestparams);
+                    }
+                    if (usrCommand.equals(Command.Logout))
+                    {
+                        responseEvent = new RequestLogoutProcess().DoLogout(hSess, requestparams);
+                    }
+                    if(!usrCommand.equals(Command.Login)&&!usrCommand.equals(Command.Logout))
+                    {
+                        RequestProcessor reqProc = ProcessorManager.FindProcessor(usrCommand, requestparams);
+                        if (reqProc == null)
+                        {
+                            responseEvent = new EventFailed(ResponseCode.Failed);
+                            responseEvent.setRespMessage("RequestProcessor Not Found.");
+                        }
+                        responseEvent = reqProc.DoProcess();
+                    }
+
                 }
-                responseEvent = reqProc.DoProcess();
 
             }
             catch (Exception ex)
             {
                 logger.error(ex.getMessage(), ex);
             }
-            String jsonResp = responseEvent.ToJson();
-            logger.info(jsonResp);
-            out.write(jsonResp);
+            JSONObject jsonResp = JSONUtil.ToJSON(responseEvent);
+//            String jsonResp = responseEvent.ToJson();
+            logger.info(jsonResp.toString());
+            out.write(jsonResp.toString());
 
         }
     }
@@ -130,7 +150,14 @@ public class RequestPuller extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        processRequest(request, response);
+        try
+        {
+            processRequest(request, response);
+        }
+        catch (Exception ex)
+        {
+            Logger.getLogger(RequestPuller.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -145,7 +172,14 @@ public class RequestPuller extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        processRequest(request, response);
+        try
+        {
+            processRequest(request, response);
+        }
+        catch (Exception ex)
+        {
+            Logger.getLogger(RequestPuller.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

@@ -41,8 +41,7 @@ public class DBManager
     protected final String _dbUrl, _dbSrvr, _dbName, _dbUser, _dbPwd;
     protected final Integer _dbPort;
     protected static Connection connection;
-    
-    
+
     public DBManager(String _dbSrvr, Integer _dbPort, String _dbName, String _dbUser, String _dbPwd) throws Exception
     {
         this._dbSrvr = _dbSrvr;
@@ -55,13 +54,14 @@ public class DBManager
         Class.forName(AppConst.DB_Driver);
 //        _connection = DriverManager.getConnection(_dbUrl, _dbUser, _dbPwd);
     }
-    
+
     public static DBManager InitDB() throws Exception
     {
         DBManager dbM = new DBManager(AppConst.DB_Server, AppConst.DB_Port, AppConst.DB_Name, AppConst.DB_User, AppConst.DB_Pwd);
         connection = DriverManager.getConnection(dbM._dbUrl, dbM._dbUser, dbM._dbPwd);
         return dbM;
     }
+
     public Connection getConnection() throws Exception
     {
         return DBManager.connection;
@@ -92,47 +92,17 @@ public class DBManager
 
     }
 
-    public ArrayList<String> FetchTableColumns(String tablename) throws Exception
-    {
-        Connection con = null;
-        PreparedStatement st = null;
-        ResultSet rs = null;
-        ArrayList<String> arrColms = new ArrayList<>();
-        try
-        {
-            con = getConnection();
-            String qry = "SHOW COLUMNS FROM " + tablename;
-            logger.debug(qry);
-            //execute query
-            st = con.prepareStatement(qry);
-            rs = st.executeQuery();
-            while (rs.next())
-            {
-                arrColms.add(rs.getString("Field"));
-            }
-
-        }
-        catch (Exception ex)
-        {
-            throw ex;
-        }
-        finally
-        {
-            CloseDBConnection(st, rs, con);
-        }
-        return arrColms;
-    }
-
-    public JSONArray Fetch(String tablename) throws Exception
+    public JSONArray Fetch(Class cls) throws Exception
     {
         Connection con = null;
         PreparedStatement st = null;
         ResultSet rs = null;
         JSONArray jobj = null;
+        ArrayList alRes = new ArrayList<>();
         try
         {
             con = getConnection();
-            String sql = "Select * From " + tablename;
+            String sql = "Select * From " + AppConst.DB_Name +"."+ cls.getSimpleName().toLowerCase();
             logger.debug(sql);
 
             st = con.prepareStatement(sql);
@@ -149,37 +119,40 @@ public class DBManager
         }
         return jobj;
     }
+
     public void Insert(Object obj)
     {
         Connection con = null;
         Statement st = null;
-        String tblName =AppConst.DB_Name + "."+obj.getClass().getSimpleName().toLowerCase();
-        
+        String tblName = AppConst.DB_Name + "." + obj.getClass().getSimpleName().toLowerCase();
+
         try
         {
-//            "INSERT INTO system.src_stat (Time,Age,Name,DOJ) values(?,?,?,?)";
-            HashMap<String,String> hmValues = getValuesForInsert(obj);
+            HashMap<String, String> hmValues = getValuesForInsert(obj);
             StringBuilder keys = new StringBuilder("(");
             StringBuilder values = new StringBuilder("(");
-            for(String key : hmValues.keySet())
+            for (String key : hmValues.keySet())
             {
+
                 keys.append(key).append(",");
-                values.append(hmValues.get(key)).append(",");
+                values.append("'").append(hmValues.get(key)).append("'").append(",");
+
             }
-            keys.append(")");
-            values.append(")");
-            String query = "Insert into "+tblName+ " "+keys.toString()+ "values "+ values.toString();
-            System.out.println("Inser query :- "+query);
+            keys.append(")").deleteCharAt(keys.toString().lastIndexOf(","));
+            values.append(")").deleteCharAt(values.toString().lastIndexOf(","));;
+            String query = "Insert into " + tblName + " " + keys.toString() + "values " + values.toString();
+            System.out.println("Inser query :- " + query);
             con = getConnection();
-            st = con.createStatement(); 
+            st = con.createStatement();
             st.execute(query);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             logger.error(ex.getMessage());
             ex.getMessage();
         }
     }
+
     /**
      * Delete table from database.
      *
@@ -210,10 +183,10 @@ public class DBManager
         }
     }
 
-   /*
+    /*
     * Convert ResultSet to a common JSON Object array
     * Result is like: [{"ID":"1","NAME":"Tom","AGE":"24"}, {"ID":"2","NAME":"Bob","AGE":"26"}, ...]
-    */
+     */
     public static JSONArray getJsonFromResult(ResultSet rs)
     {
 //        List<JSONObject> resList = new ArrayList<>();
@@ -258,10 +231,11 @@ public class DBManager
         }
         return resArr;
     }
-    private HashMap<String,String> getValuesForInsert(Object obj) throws Exception
+
+    private HashMap<String, String> getValuesForInsert(Object obj) throws Exception
     {
-        HashMap<String,String> hmValues = new HashMap<>();
-        
+        HashMap<String, String> hmValues = new HashMap<>();
+
         Field[] arrFlds = obj.getClass().getDeclaredFields();
         for (Field fld : arrFlds)
         {
@@ -276,8 +250,9 @@ public class DBManager
                         value = EnumUtil.Name(value);
                     }
 
-                    hmValues.put(fld.getName(),value.toString());
-                } catch (Exception e)
+                    hmValues.put(fld.getName(), value.toString());
+                }
+                catch (Exception e)
                 {
                     e.printStackTrace();
                 }
